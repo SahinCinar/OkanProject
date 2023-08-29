@@ -1,0 +1,65 @@
+<div class="uploadHeader" id="uploadHeader">
+    {{#if (eq userRole "admin")}}
+
+        <main>
+
+            <div class="home__space-area">
+                <h1>Welkom, {{user.email}}!</h1>
+            </div>
+        </main>
+
+        <p>Je bent een beheerder.</p>
+
+    {{else if (eq userRole "teacher")}}
+
+        <main>
+
+            <div class="home__space-area">
+                <h1>Welkom, {{user.email}}!</h1>
+            </div>
+        </main>
+
+        <p>Je bent een leraar.</p>
+
+    {{else}}
+
+        <main>
+
+            <div class="home__space-area">
+                <h1>Welkom, {{user.email}}!</h1>
+            </div>
+        </main>
+
+        <p>Je hebt een student.</p>
+    {{/if}}
+    <form
+        class="form__upload"
+        action="/uploadAvatar"
+        method="post"
+        enctype="multipart/form-data"
+    >
+        <div class="form-group">
+            <label class="text_small" for="avatar">
+                <div id="avatarImg" class="avatarImg">
+                    <img
+                        id="preview"
+                        class="preview"
+                        src="#"
+                        alt="Preview"
+                        style="display: none;"
+                    />
+                    <span>Klik hier om een foto te kiezen</span>
+                    <div>
+                        <input
+                            type="file"
+                            name="avatar"
+                            id="avatar"
+                            style="display: none;"
+                        />
+                    </div>
+                </div>
+            </label>
+        </div>
+        <input type="submit" value="Upload" />
+    </form>
+</div>

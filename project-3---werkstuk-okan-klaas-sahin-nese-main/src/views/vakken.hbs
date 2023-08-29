@@ -1,0 +1,77 @@
+<body class="white__background" >
+    <div class="background__right ">
+    </div>
+{{> header}}
+
+
+</body>
+
+{{#if (eq userRole "admin")}}
+  
+  <main>
+  <div class="space__subject-main">
+    <a href="/">
+        <img src="/assets/img/goLeft.svg" alt="left arrow">
+    </a>
+</div>
+
+<div class="gray__background">
+
+    <div class="grid__subjects">
+    {{> subjectPage}}
+    <a class="link__grid__subject" href="/vakken/toevoegen" >
+
+    <div class="grid__subjects">
+            +
+    </div>
+    </a>
+    </div>
+
+</div>
+</main>
+
+
+  <p>Je bent een beheerder.</p>
+
+
+{{else if (eq userRole "teacher")}}
+  
+  <main>
+  <div class="space__subject-main">
+    <a href="/">
+        <img src="/assets/img/goLeft.svg" alt="left arrow">
+    </a>
+</div>
+
+<div class="gray__background">
+
+    <div class="grid__subjects">
+    {{> subjectPageTeacherStudent}}
+    </div>
+
+</div>
+</main>
+
+  <p>Je bent een leraar.</p>
+
+
+{{else}}
+  
+  <main>
+    <div class="space__subject-main">
+    <a href="/">
+        <img src="/assets/img/goLeft.svg" alt="left arrow">
+    </a>
+</div>
+
+<div class="gray__background">
+
+    <div class="grid__subjects">
+    {{> subjectPageTeacherStudent}}
+    </div>
+
+</div>
+</main>
+
+  <p>Je hebt een student.</p>
+{{/if}}

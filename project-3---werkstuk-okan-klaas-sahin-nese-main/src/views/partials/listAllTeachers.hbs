@@ -1,0 +1,17 @@
+{{#each allUserMetas}}
+{{#if staf}}
+<ul>
+    <li>{{voornaam}} {{achternaam}}</li>
+        {{#if staf}}
+    <li  class="avatar__list"> <img src="{{staf.avatar}}" alt="avatar"></li>
+    <li>{{staf.email}}</li>
+    {{/if}}
+    <li>{{geboortedatum}} </li>
+    <li>
+        <form action="/api/staf/{{staf.id}}" method="post">
+        <button type="submit"><img src="assets/img/delete.svg" alt="delete"></button>
+        </form>
+    </li>
+</ul>
+{{/if}}
+{{/each}}

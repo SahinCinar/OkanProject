@@ -1,0 +1,22 @@
+{{#each allUserMetas}}
+{{#if student}}
+<ul>
+    <li>{{id}}</li>
+    <li>{{voornaam}} {{achternaam}}</li>
+    {{#if student}}
+    <li class="avatar__list"> <img src="{{student.avatar}}" alt="avatar"></li>
+    <li>  {{student.email}}</li>
+    {{/if}}
+    <li>{{geboortedatum}} </li>
+    <li> {{geboorteplaats}} </li>
+    <li>{{classroom}}</li>
+    <li> {{adres}} </li>
+    <li>
+        <a href="/editstudent/{{student.id}}"><img src="assets/img/edit.svg" alt="change"></a>
+        <form action="/api/student/{{student.id}}" method="post">
+        <button type="submit"><img src="assets/img/delete.svg" alt="delete" onclick="return confirm('Weet je zeker dat je dit student wilt verwijderen?')"></button>
+        </form>
+    </li>
+</ul>
+{{/if}}
+{{/each}}

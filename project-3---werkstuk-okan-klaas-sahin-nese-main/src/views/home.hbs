@@ -1,0 +1,52 @@
+<body class="home">
+
+    <div class="background__right background__left ">
+
+    </div>
+{{> header}}
+
+
+
+{{#if (eq userRole "admin")}}
+  
+  <main>
+   
+    <div class="home__space-area">
+       <h1>Welkom, {{user.email}}!</h1>
+    {{> headCategory}}
+    </div>
+</main>
+
+
+  <p>Je bent een beheerder.</p>
+
+
+{{else if (eq userRole "teacher")}}
+  
+  <main>
+   
+    <div class="home__space-area">
+       <h1>Welkom, {{user.email}}!</h1>
+    {{> headCategory}}
+    </div>
+</main>
+
+  <p>Je bent een leraar.</p>
+
+
+{{else}}
+  
+  <main>
+    
+    <div class="home__space-area">
+      <h1>Welkom, {{user.email}}!</h1>
+    {{> headCategoryStudent}}
+    </div>
+</main>
+
+  <p>Je hebt een student.</p>
+{{/if}}
+
+
+</body>
+
